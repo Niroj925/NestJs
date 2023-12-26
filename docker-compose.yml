@@ -1,0 +1,14 @@
+version: '3'
+services:
+ dev-db:
+ image: webapp:v1
+ ports: 5432:5432
+ environment:
+    POSTGRES_USER: postgres
+    POSTGRES_PASSWORD: thapa123
+    POSTGRES_DB: mypgdb
+
+    networks:
+      - nnnn
+networks:
+nnnn:

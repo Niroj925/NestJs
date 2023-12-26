@@ -51,6 +51,7 @@ export class AuthService{
             //     createdAt:true
             // }
         });
+        
         delete user.hash
         return user;
     }catch(error){
