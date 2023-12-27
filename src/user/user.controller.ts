@@ -3,13 +3,23 @@ import { AuthGuard } from '@nestjs/passport';
 import { Request } from 'express';
 import { userInfo } from 'os';
 import { jwtGuard } from 'src/auth/guard';
-
+import { User } from '@prisma/client';
+import { GetUser } from 'src/auth/decorator';
+ 
+//token validation
+@UseGuards(jwtGuard)//this is for all request 
 @Controller('user')
 export class UserController {
 
-    @UseGuards(jwtGuard)//for token validation
-    @Get('me')
-    getMe(@Req() req:Request){
-     return req.user;
+   @Get('me')
+    //GetUser custome decorator
+    getMe(
+        @GetUser() user:User,
+        @GetUser('email') email:string,
+        ){
+            console.log({
+                email,
+            })
+     return user;
     }
 }
