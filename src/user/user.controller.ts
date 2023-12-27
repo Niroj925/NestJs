@@ -2,9 +2,11 @@ import { Controller,Req,Get, UseGuards } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import { Request } from 'express';
 import { userInfo } from 'os';
-import { jwtGuard } from 'src/auth/guard';
+// import { jwtGuard } from 'src/auth/guard';
+import { jwtGuard } from '../../src/auth/guard';
 import { User } from '@prisma/client';
-import { GetUser } from 'src/auth/decorator';
+// import { GetUser } from 'src/auth/decorator';
+import { GetUser } from '../../src/auth/decorator';
  
 //token validation
 @UseGuards(jwtGuard)//this is for all request 
