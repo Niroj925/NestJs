@@ -119,8 +119,18 @@ describe('App e2e test',()=>{
 
     describe('User',()=>{
 
-      describe('get me',()=>{
-        
+      describe('Get me',()=>{
+
+        it('should get user',()=>{
+           return pactum
+           .spec()
+           .get('/user/me')
+           .withHeaders({
+            Authorization:'Bearer $S{userAt}'
+           })
+           .expectStatus(200)
+           .inspect()
+        })
       })
     })
 
@@ -131,5 +141,4 @@ describe('App e2e test',()=>{
   })
 
 
-  it.todo('it should pass');
 })
